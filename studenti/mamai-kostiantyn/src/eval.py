@@ -22,10 +22,10 @@ PROVIDERS = {
         "key_env": "GROQ_API_KEY",
         "default_model": "openai/gpt-oss-20b",
     },
-    "mistral": {
-        "base_url": "https://api.mistral.ai/v1",
-        "key_env": "MISTRAL_API_KEY",
-        "default_model": "mistral-small-latest",
+    "openrouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "key_env": "OPENROUTER_API_KEY",
+        "default_model": "google/gemma-3-27b-it:free",
     },
     "gemini": {
         "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",

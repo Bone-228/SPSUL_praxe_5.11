@@ -55,8 +55,8 @@ Z kořene této složky spusť například:
 
 ```bash
 python src/eval.py --provider groq --model openai/gpt-oss-20b --set dev --prompt v1
-python src/eval.py --provider mistral --model mistral-small-latest --set dev --prompt v1
 python src/eval.py --provider gemini --model gemini-2.5-flash --set dev --prompt v1
+python src/eval.py --provider openrouter --model google/gemma-3-27b-it:free --set dev --prompt v1
 ```
 
 Provider, model, sada a prompt se nastavují parametry příkazového řádku.
