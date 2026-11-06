@@ -1,0 +1,22 @@
+{
+  "student": "Kostiantyn Mamai",
+  "uloha": "SMS zprÃ¡vy: phishing a typ podvodu",
+  "behy": [
+    {
+      "model": "openai/gpt-oss-20b",
+      "poskytovatel": "groq",
+      "prompt": "v1",
+      "sada": "dev",
+      "pripadu": 15,
+      "validni_json": 0.0,
+      "uplna_shoda": 0.0,
+      "pole": {
+        "phishing": 0.0,
+        "typ_podvodu": 0.0
+      },
+      "latence_s": 0.07004944000315542,
+      "tokeny_vstup": 0,
+      "tokeny_vystup": 0
+    }
+  ]
+}
