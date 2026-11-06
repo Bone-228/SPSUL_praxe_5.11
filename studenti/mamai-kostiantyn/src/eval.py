@@ -158,13 +158,13 @@ def request_model(
                 raise RuntimeError(f"API HTTP {error.code}: {details[:500]}") from error
             retry_after = error.headers.get("Retry-After")
             delay = float(retry_after) if retry_after else retry_delay * (attempt + 1)
-            print(f"Rate limit (429), čekám {delay:g} s...", file=sys.stderr)
+            print(f"Rate limit (429), ÄekÃ¡m {delay:g} s...", file=sys.stderr)
             time.sleep(delay)
         except (URLError, TimeoutError, json.JSONDecodeError) as error:
             if attempt >= max_retries:
                 raise RuntimeError(f"API request failed: {error}") from error
             delay = retry_delay * (attempt + 1)
-            print(f"Chyba spojení, opakuji za {delay:g} s...", file=sys.stderr)
+            print(f"Chyba spojenÃ­, opakuji za {delay:g} s...", file=sys.stderr)
             time.sleep(delay)
     raise RuntimeError("Request retry loop ended unexpectedly")
 
@@ -209,8 +209,8 @@ def main() -> int:
     api_key = os.getenv(provider["key_env"])
     if not api_key:
         raise SystemExit(
-            f"Chybí {provider['key_env']}. Přidej ho do "
-            f"{ROOT / '.env'} nebo nastav jako proměnnou prostředí."
+            f"ChybÃ­ {provider['key_env']}. PÅ™idej ho do "
+            f"{ROOT / '.env'} nebo nastav jako promÄ›nnou prostÅ™edÃ­."
         )
 
     dataset_path = ROOT / "data" / f"{args.set}.jsonl"
@@ -340,7 +340,7 @@ def main() -> int:
     else:
         summary = {
             "student": "Kostiantyn Mamai",
-            "uloha": "SMS zprávy: phishing a typ podvodu",
+            "uloha": "SMS zprÃ¡vy: phishing a typ podvodu",
             "behy": [],
         }
     summary.setdefault("behy", [])
@@ -360,9 +360,10 @@ def main() -> int:
         encoding="utf-8",
     )
     print(json.dumps(summary_entry, ensure_ascii=False, indent=2))
-    print(f"Výsledky: {result_file}")
+    print(f"VÃ½sledky: {result_file}")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
