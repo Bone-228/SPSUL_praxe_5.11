@@ -45,3 +45,20 @@ Povolené hodnoty `typ_podvodu`:
 Úloha: klasifikace SMS zpráv podle toho, zda jde o phishing, a podle typu
 podvodu. Testovací data, prompty, evaluační skript a výsledky budou doplněny
 v dalších fázích.
+
+## Spuštění evaluace
+
+Vytvoř soubor `.env` podle `.env.example` a doplň API klíče. Soubor `.env` se
+nesmí commitnout do repozitáře.
+
+Z kořene této složky spusť například:
+
+```bash
+python src/eval.py --provider groq --model openai/gpt-oss-20b --set dev --prompt v1
+python src/eval.py --provider mistral --model mistral-small-latest --set dev --prompt v1
+python src/eval.py --provider gemini --model gemini-2.5-flash --set dev --prompt v1
+```
+
+Provider, model, sada a prompt se nastavují parametry příkazového řádku.
+Odpovědi se ukládají do `cache/`, podrobné výsledky do `results/`, a souhrn
+všech běhů do `results/summary.json`.
