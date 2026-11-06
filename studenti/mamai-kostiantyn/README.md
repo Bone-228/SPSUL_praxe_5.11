@@ -108,8 +108,23 @@ nebo jeho placenou variantu. Na dev sadě měl stejnou úplnou přesnost jako
 Nemotron (93,33 %), ale byl přibližně pětkrát rychlejší a použil výrazně méně
 výstupních tokenů. V produkci by bylo nutné použít placený endpoint nebo vlastní
 provider key, protože bezplatný OpenRouter limit není pro 10 000 zpráv denně
-vhodný. Přesnou cenu je třeba spočítat podle aktuální ceny placené varianty a
-skutečných tokenů, protože free endpoint cenu nemá.
+vhodný.
+
+Pro orientační výpočet jsem použil naměřenou spotřebu nejlepšího běhu Cohere:
+5 570 vstupních a 2 115 výstupních tokenů na 15 SMS. Pro 10 000 SMS by to
+při stejném průměru znamenalo přibližně 3 713 333 vstupních a 1 410 000
+výstupních tokenů. Placená Cohere varianta `cohere/command-r7b-12-2024` měla
+v době měření na OpenRouteru cenu 0,0000000375 USD za vstupní token a
+0,00000015 USD za výstupní token:
+
+```text
+3 713 333 × 0,0000000375 = 0,13925 USD
+1 410 000 × 0,00000015   = 0,21150 USD
+Celkem přibližně          = 0,35075 USD za 10 000 SMS
+```
+
+Jde o odhad pro placenou variantu, ne o cenu bezplatného modelu
+`cohere/north-mini-code:free`; ceny poskytovatelů se mohou měnit.
 
 ## AI asistent a reflexe
 
